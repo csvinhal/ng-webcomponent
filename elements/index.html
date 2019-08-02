@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>CardElement</title>
-    <base href="/" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Custom Element</title>
   </head>
+
   <body>
     <facebook-card
       title="Custom Element"
@@ -22,10 +22,6 @@
       <i icon-share class="fa fa-share"></i>
     </facebook-card>
     <script>
-      /**
-       * Here you can interact with custome element using pure javascript
-       * You can Listen to built-in events as well as custome events
-       */
       const el = document.querySelector("facebook-card");
       el.addEventListener("likeNotify", e => {
         console.log("Like Cliked");
@@ -37,5 +33,8 @@
         console.log("Comment Cliked");
       });
     </script>
+    <script src="./../node_modules/zone.js/dist/zone.js"></script>
+    <script src="./main.js"></script>
+    <script src="./scripts.js"></script>
   </body>
 </html>

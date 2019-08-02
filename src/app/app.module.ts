@@ -1,16 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
+import { Injector, NgModule } from "@angular/core";
+import { createCustomElement } from "@angular/elements";
+import { BrowserModule } from "@angular/platform-browser";
+import { NgCardElementComponent } from "./ng-card-element/ng-card-element.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [NgCardElementComponent],
+  imports: [BrowserModule],
+  entryComponents: [NgCardElementComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap() {
+    const el = createCustomElement(NgCardElementComponent, {
+      injector: this.injector
+    });
+
+    customElements.define("facebook-card", el);
+  }
+}
